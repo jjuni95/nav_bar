@@ -1,0 +1,100 @@
+:root{ /*변수로 지정해놓음*/
+    --text-color: #f0f4f5;
+    --background-color: #263343;
+    --accent-color: #d49466;
+}
+body{
+    margin: 0;
+    font-family: 'Source Sans Pro';
+}
+
+a{
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #263343;
+    padding: 8px 12px;
+}
+
+.navbar_logo{
+    font-size: 24px;
+    color: var(--text-color);
+}
+
+.navbar_logo i {
+    color: #d49466;
+}
+
+.navbar_menu{
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+}
+
+
+.navbar_menu li{
+    padding: 8px 12px; /*마우스 닿는 영역 넓게*/
+}
+
+/*마우스 올릴때 색깔 바뀜*/
+.navbar_menu li:hover{
+    background-color: #d49466;
+    border-radius: 4px;
+}
+
+.navbar_icons{
+    list-style: none;
+    color: var(--text-color);
+    display: flex;
+    padding-left: 0;
+}
+
+.navbar_icons li{
+    padding: 8px 12px;
+}
+
+.navbar_togleBtn{
+    display: none; /*화면이 작아졌을때만 나오게*/
+    position: absolute;
+    right: 32px;
+    font-size: 24px;
+    color: #d49466;
+}
+
+/*레이아웃 반응형으로 만들때*/
+@media screen and (max-width:768px){
+    .navbar{
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px 12px;
+    }
+    .navbar_menu{
+        display: none; /*max-width:768px보다 작으면 display안보이게*/
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .navbar_menu li{
+        width: 100%;
+        text-align: center;
+    }
+    .navbar_icons{
+        display: none; /*max-width:768px보다 작으면 display안보이게*/
+        justify-content: center;
+        width: 100%;
+    }
+    .navbar_togleBtn{ /*max-width:768px 일때만
+                        토글버튼이 나오게 하기*/
+        display: block;
+    }
+    
+    .navbar_menu.active,
+    .navbar_icons.active {
+        display: flex;
+    }
+}
